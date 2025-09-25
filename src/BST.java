@@ -29,7 +29,7 @@ public class BST {
 
 
     public boolean isEmpty() {
-        return this.root == null;
+        return root == null;
     }
 
     public boolean contains(int item) {
@@ -58,52 +58,57 @@ public class BST {
         }
     }
 
-
     public void delete(int item) {
-        if (this.isEmpty()) {
-            return;
-        } else if (item == this.root) {
+        if (this.isEmpty()) {}
+        else if (item == this.root) {
             this.deleteRoot();
-        } else if  (item < this.root) {
+        }
+        else if (item < this.root) {
             this.left.delete(item);
-        } else {
+        }
+        else {
             this.right.delete(item);
         }
     }
 
     private void deleteRoot() {
-        if (this.left.isEmpty() && this.right.isEmpty()) {
+        if (this.left.isEmpty() &&  this.right.isEmpty()) {
             this.root = null;
             this.left = null;
             this.right = null;
-        } else if (this.left.isEmpty()) {
+        }
+        else if (this.left.isEmpty()) {
             this.root = this.right.root;
             this.left = this.right.left;
             this.right = this.right.right;
-        } else if (this.left.right.isEmpty()) {
+        }
+        else if (this.right.isEmpty()) {
             this.root = this.left.root;
             this.right = this.left.right;
             this.left = this.left.left;
-        } else {
+        }
+        else {
             this.root = this.left.extractMax();
         }
     }
 
 
     private int extractMax() {
-        if (this.right.isEmpty()) {
+        if (this.right.isEmpty()){
             int max_item = this.root;
             this.deleteRoot();
             return max_item;
-        } else {
+        }
+        else {
             return this.right.extractMax();
         }
     }
 
     public int height() {
-        if (this.isEmpty()) {
+        if (this.isEmpty()){
             return 0;
-        } else {
+        }
+        else {
             return Math.max(this.left.height(), this.right.height()) + 1;
         }
     }
@@ -111,11 +116,14 @@ public class BST {
     public int count(int item) {
         if (this.isEmpty()) {
             return 0;
-        } else if (this.root > item) {
+        }
+        else if (item < this.root) {
             return this.left.count(item);
-        } else if (this.root == item) {
+        }
+        else if (this.root == item) {
             return 1 + this.left.count(item) + this.right.count(item);
-        } else {
+        }
+        else {
             return this.right.count(item);
         }
     }
@@ -123,7 +131,8 @@ public class BST {
     public int getSize() {
         if (this.isEmpty()) {
             return 0;
-        } else {
+        }
+        else {
             return 1 + this.left.getSize() + this.right.getSize();
         }
     }
