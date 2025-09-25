@@ -1,4 +1,26 @@
 public class Tree {
+    public void insert(int item) {
+    }
+
+    public void delete(int item) {
+    }
+
+    public boolean contains(int item) {
+        return false;
+    }
+
+    public boolean isEmpty() {
+        return false;
+    }
+
+    public int count(int item) {
+        return item;
+    }
+
+    public int size() {
+        return 0;
+    }
+
     // We recommend attempting this class last, as it hasn't been scaffolded for your team.
     // Even if your team doesn't have time to implement this class, it is a useful exercise
     // to think about how you might split up the work to get the Tree and TreeMultiSet
